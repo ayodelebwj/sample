@@ -32,7 +32,7 @@
 
     - name: Display terraform output server public IP and 
       debug:
-        msg: "output server IP: {{ webserverip }}"
+        msg: "terraform output server IP: {{ webserverip.value }}"
 
 
 
