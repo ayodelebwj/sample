@@ -32,7 +32,7 @@
         dest: /tmp/myintro.txt
 
     - name: cat myintro.txt jijna 2 file
-      run: cat /tmp/myintro.txt
+      cmd: cat /tmp/myintro.txt
 
 
 
