@@ -34,7 +34,7 @@ jobs:
 
       - name: Terraform Apply
         working-directory: terraform
-        run: terraform destroy -auto-approve
+        run: terraform apply -auto-approve
 
       - name: Get EC2 IP
         id: tf_output
