@@ -1,12 +1,15 @@
 
     variable "ami" {
-        default = ""
+    description = "AMI ID for the EC2 instance"
+    type = string
     }
 
     variable "instance_type" {
-        default = ""
+    description = "INSTANCE TYPE for the EC2 instance"
+    type = string
     }
 
     variable "key_name" {
-        default = ""
+    description = "KEY NAME for the EC2 instance"
+    type = string
     }
