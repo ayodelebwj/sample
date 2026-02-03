@@ -22,10 +22,6 @@
       debug:
         msg: "All Server Name: {{ all_server_name }}, All Port: {{ all_port }}"
 
-    - name: Display terraform output server public IP and 
-      debug:
-        msg: "Web Public IP: {{ webserverip }}"
-
     - name: copy jinja2 template file to remote server
       template:
         src: myintro.j2
@@ -33,6 +29,11 @@
 
     - name: cat myintro.txt jijna 2 file
       command: cat /tmp/myintro.txt
+
+    - name: Display terraform output server public IP and 
+      debug:
+        msg: "output server IP: {{ webserverip }}"
+
 
 
 
