@@ -17,7 +17,7 @@ provider "aws" {
     region = "us-east-1"
 }
 
-resource "aws_ec2_instance" "web_server" {
+resource "aws_instance" "web_server" {
     ami = var.ami
     instance_type = var.instance_type
     key_name = var.key_name
