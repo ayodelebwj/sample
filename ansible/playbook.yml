@@ -1,0 +1,14 @@
+---
+- name: my test run
+  hosts: all
+  gather_facts: true
+  become: true
+  vars_files:
+    - web.yml
+    - app.yml
+    - all.yml
+
+  tasks:
+    - name: Display server name and app port
+      debug:
+        msg: "Server Name: {{ server_name }}, App Port: {{ app_port }}"
