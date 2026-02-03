@@ -40,7 +40,7 @@ jobs:
         id: tf_output
         working-directory: terraform
         run: |
-          echo "EC2_IP=$(terraform output -raw web_public_ip)" >> $GITHUB_ENV
+          echo "EC2_IP=$(terraform output -raw webserverip)" >> $GITHUB_ENV
 
       # ---------- ANSIBLE ----------
       - name: Setup Python
@@ -60,4 +60,4 @@ jobs:
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
-          ansible-playbook playbook.yml -i inventory/terraform_inventory.py
+          ansible-playbook playbook.yml -i inventory/hosts.ini
