@@ -1,2 +1,4 @@
-server_name: app_server
+app_server_name: app_server
 app_port: 9000
+
+

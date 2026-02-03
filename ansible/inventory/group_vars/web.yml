@@ -1,2 +1,2 @@
-server_name: web_server
-app_port: 80
+web_server_name: web_server
+web_port: 80
