@@ -23,6 +23,6 @@ resource "aws_instance" "web_server" {
     key_name = var.key_name
 
     tags = {
-        Name = web_server
+        Name = "web_server"
     }
 }
