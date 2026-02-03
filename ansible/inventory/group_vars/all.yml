@@ -1,2 +1,2 @@
-all_server_name: all_server
-all_port: 8080
+server_name: all_server
+port_number: 8080

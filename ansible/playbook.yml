@@ -10,34 +10,49 @@
     - all.yml
 
   tasks:
-    - name: Display app server name and app port
-      debug:
-        msg: "App Server Name: {{ app_server_name }}, App Port: {{ app_port }}"
-
-    - name: Display web server name and web port
-      debug:
-        msg: "Web Server Name: {{ web_server_name }}, Web Port: {{ web_port }}"
-
     - name: Display all server name and all port
       debug:
-        msg: "All Server Name: {{ all_server_name }}, All Port: {{ all_port }}"
+        msg: "All Server Name: {{ server_name }}, All Port: {{ port_number }}"
 
     - name: copy jinja2 template file to remote server
       template:
         src: myintro.j2
-        dest: /tmp/myintro.txt
+        dest: /tmp/all/myintro.txt
 
-    - name: cat myintro.txt jijna 2 file
-      command: cat /tmp/myintro.txt
+    - name: cat myintro.txt jijna 2 file from "ALL"
+      command: cat /tmp/all/myintro.txt
 
     - name: Display terraform output server public IP and 
       debug:
         msg: "terraform output server IP: {{ webserverip.value }}"
 
 
+- name: target web host
+  hosts: web
+
+  tasks:
+    - name: Display web server name and web port
+      debug:
+        msg: "Web Server Name: {{ server_name }}, Web Port: {{ port_number }}"
+
+    - name: copy jinja2 template file to remote server from "WEB"
+      template:
+        src: myintro.j2
+        dest: /tmp/all/myintro.txt
 
 
+- name: target app host
+  hosts: app
 
+  tasks:
+    - name: Display app server name and app port
+      debug:
+        msg: "app Server Name: {{ server_name }}, app Port: {{ port_number }}"
+
+    - name: copy jinja2 template file to remote server from "APP"
+      template:
+        src: myintro.j2
+        dest: /tmp/all/myintro.txt
 
 
 
