@@ -34,7 +34,7 @@ jobs:
 
       - name: Terraform Apply
         working-directory: terraform
-        run: terraform apply -auto-approve
+        run: terraform destroy -auto-approve
 
       - name: Get EC2 IP
         id: tf_output
@@ -62,4 +62,3 @@ jobs:
         working-directory: ansible
         run: |
           ansible-playbook playbook.yml -i inventory/terraform_inventory.py
-          
