@@ -40,6 +40,9 @@
       debug:
         msg: "Web Server Name: {{ server_name }}, Web Port: {{ port_number }}"
 
+    - name: create web directory inside tmp folder
+      command: mkdir -p /tmp/web
+
     - name: copy jinja2 template file to remote server from "WEB"
       template:
         src: myintro.j2
@@ -53,6 +56,9 @@
     - name: Display app server name and app port
       debug:
         msg: "app Server Name: {{ server_name }}, app Port: {{ port_number }}"
+
+    - name: create app directory inside tmp folder
+      command: mkdir -p /tmp/app
 
     - name: copy jinja2 template file to remote server from "APP"
       template:
