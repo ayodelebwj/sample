@@ -36,6 +36,10 @@ jobs:
         working-directory: terraform
         run: terraform apply -auto-approve
 
+      - name: Terraform Apply
+        working-directory: terraform
+        run: terraform output -json > tf_outputs.json
+
       - name: Get EC2 IP
         id: tf_output
         working-directory: terraform
