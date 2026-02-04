@@ -36,9 +36,9 @@ jobs:
         working-directory: terraform
         run: terraform apply -auto-approve
 
-      - name: Terraform Apply
+      - name: export terraform outputs to json file
         working-directory: terraform
-        run: terraform output -json > ansible/tf_outputs.json
+        run: terraform output -json > ../ansible/tf_outputs.json
 
       - name: Get EC2 IP
         id: tf_output
