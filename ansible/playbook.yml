@@ -16,7 +16,7 @@
 
 
     - name: copy jinja2 template file to remote server from "APP"
-      command: mkdir -p /tmp/{"all","web","app"}
+      command: mkdir -p /tmp/all
 
     - name: copy jinja2 template file to remote server
       template:
