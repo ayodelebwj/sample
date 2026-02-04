@@ -48,7 +48,6 @@
         src: myintro.j2
         dest: /tmp/web/myintro.txt
 
-
 - name: target app host
   hosts: app
 
