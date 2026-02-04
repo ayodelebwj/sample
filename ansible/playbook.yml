@@ -14,6 +14,10 @@
       debug:
         msg: "All Server Name: {{ server_name }}, All Port: {{ port_number }}"
 
+
+    - name: copy jinja2 template file to remote server from "APP"
+      command: mkdir -p /tmp/{"all","web","app"}
+
     - name: copy jinja2 template file to remote server
       template:
         src: myintro.j2
@@ -38,7 +42,7 @@
     - name: copy jinja2 template file to remote server from "WEB"
       template:
         src: myintro.j2
-        dest: /tmp/all/myintro.txt
+        dest: /tmp/web/myintro.txt
 
 
 - name: target app host
@@ -52,7 +56,7 @@
     - name: copy jinja2 template file to remote server from "APP"
       template:
         src: myintro.j2
-        dest: /tmp/all/myintro.txt
+        dest: /tmp/app/myintro.txt
 
 
 
