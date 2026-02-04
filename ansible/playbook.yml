@@ -4,16 +4,18 @@
   gather_facts: true
   become: true
   vars_files:
-    - tf_outputs.json
     - web.yml
     - app.yml
     - all.yml
 
   tasks:
+    - name: Load Terraform outputs
+      set_fact:
+        tf_outputs: "{{ lookup('file', 'tf_outputs.json') | from_json }}"
+
     - name: Display all server name and all port
       debug:
         msg: "All Server Name: {{ server_name }}, All Port: {{ port_number }}"
-
 
     - name: copy jinja2 template file to remote server from "APP"
       command: mkdir -p /tmp/all
@@ -28,8 +30,7 @@
 
     - name: Display terraform output server public IP and 
       debug:
-        msg: "terraform output server IP: {{ webserverip.value }}"
-
+        msg: "terraform output server IP: {{ tf_outputs.webserverip.value }}"
 
 - name: target web host
   hosts: web
